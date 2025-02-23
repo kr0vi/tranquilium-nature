@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Outfit";
+    
+}
+
+
+body{
+    padding: 3vh 3vh 30px 30px;
+}
+
+#nav{
+    /* background-color: red; */
+    display: flex;
+    color: #21211c;
+}
+#navl{
+    /* background-color: blue; */
+    width: 21vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#navr{
+    /* background-color: green; */
+    width: 79vw;
+    display: flex;
+    justify-content: flex-end;
+}
+#logo{
+    font-weight: 800;
+}
+#about{
+    font-size: 18px;
+    font-weight: 500;
+}
+#play{
+    font-size: 18px;
+}
+
+
+
+#hero{
+    /* background-color: yellow; */
+    margin-top: 13vh;
+     position: relative;
+         color: #21211c;
+}
+#hero h1{
+    margin-right: 100px;
+    font-size: 60px;
+    text-align: center;
+   
+}
+#hero img{
+    position: absolute;
+    top: 0%;
+    left: 75%;
+    width: 110px;
+}
+
+
+#sub-para{
+    /* background-color: red; */
+    margin-top: 12vh;
+    font-size: 22px;
+    letter-spacing: -1px;
+    line-height: 25px;
+     color: #21211c;
+
+}
+p{
+    font-family:'Times New Roman';
+}
+em{
+        font-family: "Amita";
+            font-size: 18px
+}
+
+
+
+#img-data{
+    display: flex;
+    margin-top: 18vh;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #21211c;
+}
+#num{
+    width: 82%;
+    display: flex;
+    justify-content: flex-start;
+    
+}
+#location{
+    width: 18%;
+    display: flex;
+    justify-content: space-between;
+}
