@@ -4,18 +4,24 @@
     font-family: "Outfit";
 }
 
-
 body{
     padding: 3vh 3vh 30px 30px;
     cursor: none;
 }
-
+ #main{
+    height: 93vh;
+ }
 #cursor{
     position: absolute;
-    z-index: 99;
     font-size: 18px;
     font-weight: 600;
     color: #21211c;
+
+}
+
+#nav,
+#hero,#sub-para{
+    transition: all ease 1s;
 }
 
 #nav{
@@ -43,8 +49,12 @@ body{
     font-size: 18px;
     font-weight: 500;
 }
+#about:hover{
+    text-decoration: underline;
+}
 #play{
     font-size: 18px;
+    /* background-color: red; */
 }
 
 
@@ -95,7 +105,7 @@ em{
     text-transform: uppercase;
     font-weight: 700;
     color: #21211c;
-
+    transition: all ease 1s;
 }
 #num{
     width: 82%;
@@ -108,7 +118,6 @@ em{
     top: 80%;
     left: 10%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    width: 220px;
     font-size: 14px;
     font-weight: 200;
     font-style: italic;
@@ -123,12 +132,20 @@ em{
     display: flex;
     justify-content: space-between;
 }
-#image{
+#image {
     position: absolute;
     top: 66%;
-    background-color: red;
     left: 42%;
+    transition: all ease 0.7s;
 }
-#image img{
+#image img {
     width: 212px;
+    z-index: 99;
+}
+.big-image{
+    top: 50% !important;
+    left: 10% !important;
+}
+em{
+    transition: all ease 1s;
 }

@@ -1,10 +1,8 @@
 let crsr = document.querySelector("#cursor");
 let imgCount = 1;
-let imageElem = document.querySelector("#image");
-console.log(imageElem);
-
-
-
+let imgElem =document.querySelector("#image img")
+let notInImage=true
+let imageContainer =document.querySelector("#image")
 let imageData = [
   {
     imageUrl:
@@ -78,13 +76,15 @@ let imageData = [
   },
 ];
 
-
+let playButton =document.querySelector("#play p")
+let counter =0;
 
 document.addEventListener("mousemove", (dets) => {
-    crsr.style.top=dets.y - 6 +"px"
-    crsr.style.left=dets.x - 10 +"px"
+    crsr.style.top=dets.y+5 +"px"
+    crsr.style.left=dets.x+5 +"px"
 })
-crsr.addEventListener("click", () => {
+document.body.addEventListener("click", () => {
+  if(notInImage){
     if (imgCount < 10) {
         imgCount++
     } else {
@@ -92,22 +92,84 @@ crsr.addEventListener("click", () => {
     }
     crsr.textContent = `${imgCount}/10`
     updateImageData()
+  }
+})
+
+imgElem.addEventListener("mouseenter",()=>{
+  notInImage =false
+  imgElem.style.cursor ="zoom-in"
+  crsr.style.opacity=0
+  
+})
+
+imgElem.addEventListener("mouseleave",()=>{
+  notInImage =true
+  imgElem.style.cursor ="none"
+  crsr.style.opacity=1
+})
+
+imgElem.addEventListener("click",()=>{
+  let flag=imgElem.classList.contains("big-image")
+  
+  if(flag){
+    console.log("image got big")
+    document.querySelector("#nav").style.opacity=1
+    document.querySelector("#hero").style.opacity=1
+    document.querySelector("#sub-para").style.opacity=1
+    imgElem.classList.remove("big-image")
+    imageContainer.style.scale ="1"
+    imageContainer.style.top="66%"
+    imageContainer.style.left="42%"
+  }else{
+    console.log("image got small")
+    document.querySelector("#nav").style.opacity=0
+    document.querySelector("#hero").style.opacity=0
+    document.querySelector("#sub-para").style.opacity=0
+    imgElem.classList.add("big-image")
+    imageContainer.style.scale ="2.2"
+    imageContainer.style.top="30%"
+    imageContainer.style.left="43%"
+  }
+})
+
+let about =document.querySelector("#about")
+about.addEventListener("click",()=>{
+  
+  if(counter%2==0){
+    document.querySelector("#nav #logo").style.opacity=0
+    document.querySelector("#nav #play").style.opacity=0
+    document.querySelector("#hero").style.opacity=0
+    document.querySelector("#img-data").style.opacity=0
+    document.querySelector("#sub-para em").style.opacity=0
+  }
+  else{
+    document.querySelector("#nav #logo").style.opacity=1
+    document.querySelector("#nav #play").style.opacity=1
+    document.querySelector("#hero").style.opacity=1
+    document.querySelector("#img-data").style.opacity=1
+    document.querySelector("#sub-para em").style.opacity=1
+  }
+  counter++
 })
 
 
-imageElem.addEventListener("mouseenter", () => {
-    console.log("hello");
-    document.body.style.cursor = "default"
-    crsr.style.opacity=0
+
+
+
+
+
+const music = document.querySelector("audio");
+music.volume=0.2
+playButton.addEventListener("click",()=>{
+  console.log("hello");
+  if (music.paused) {
+    music.play();
+    playButton.textContent="Mute"
+} else {
+    music.pause();
+    playButton.textContent="Play"
+}
 })
-
-imageElem.addEventListener("mouseleave", () => {
-  console.log("bye");
-  document.body.style.cursor = "none";
-  crsr.style.opacity =1;
-});
-
-
 
 
 function updateImageData() {
